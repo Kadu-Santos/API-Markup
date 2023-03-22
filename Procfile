@@ -1,1 +1,0 @@
-web: gunicorn backend.wsgi:django-polls --log-file -
