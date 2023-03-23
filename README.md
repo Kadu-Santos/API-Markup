@@ -373,12 +373,8 @@ ___
 
 ## 📟Deploy com Pythonanywhere
 
-<hr>
-
 <br>
 
 <div id='run'></div>
 
 ## 💻Como Usar a API
-
-<hr>
