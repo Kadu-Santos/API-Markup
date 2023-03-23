@@ -1,4 +1,4 @@
-<h1>🔰API MARKUP - API REST DJANGO</h1>
+# 🔰API MARKUP - API REST DJANGO
 
  1. [DESCRIÇÃO](#desc)
  2. [FERRAMENTAS](#fer)
@@ -8,12 +8,12 @@
  6. [DEPLOY](#dp)
  7. [COMO USAR / END POINTS](#run)
  8. [LICENÇA DO PROJETO](LICENSE)
+ ****
 
-<hr>
-<br><br><br>
+<br>
+## 📃Descrição do projeto
+<div id='desc'></div>
 
-<h3 id='desc'>📃 Descrição do projeto:</h3>
-<hr>
 <p>A API em questão é uma solução simples para aplicações que desejam armazenar e gerenciar questões de múltipla escolha e puzzles com palavras bagunçadas. Ela oferece suporte a um conjunto de comandos HTTP que incluem GET, PUT, UPDATE e DELETE, permitindo que os usuários interajam com a API de maneira flexível e eficiente. Além de permitir o armazenamento de perguntas, alternativas e respostas com seus respectivos níveis de dificuldade. Isso possibilita a criação de aplicações, que podem ser adaptadas para atender às necessidades de diferentes públicos. Por fim, instalar o Insomnia para testar a API.</p>
 
 <br>
@@ -135,7 +135,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 
 <br>
 
-<code>class Pergunta(models.Model):
+```
+ class Pergunta(models.Model):
         perguntaNivel = models.IntegerField()
         pergunta = models.CharField(max_length = 250)
         alternativa_a = models.CharField(max_length = 250)
@@ -145,9 +146,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
         respost'a = models.CharField(max_length = 250)
 
     def __str__(self):
-        return self.pergunta</code>
-
-<br>
+        return self.pergunta
+```
 
 <p>Aqui é definido a classe "Puzzle" com campos para definir: nivel, enunciado, uma palavra, frase ou coamando com os termos fora de ordem, e  resposta.</p>
 
