@@ -135,9 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 
 <br>
 
-<code>
-
-    class Pergunta(models.Model):
+<code>class Pergunta(models.Model):
         perguntaNivel = models.IntegerField()
         pergunta = models.CharField(max_length = 250)
         alternativa_a = models.CharField(max_length = 250)
@@ -147,8 +145,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
         respost'a = models.CharField(max_length = 250)
 
     def __str__(self):
-        return self.pergunta
-</code>
+        return self.pergunta</code>
 
 <br>
 
