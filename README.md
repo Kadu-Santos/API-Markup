@@ -119,7 +119,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 <br>
 
 <p align="center">
-    <img src="imgs_tut\arvore_arquivos.png" width="250px" style="margin: auto;">
+    <img src="imgs_tut\arvore_arquivos.png" width="270px" style="margin: auto;">
     <img src="imgs_tut\code_example.png" width="350px" style="margin: auto;">
 </p>
 
@@ -271,7 +271,7 @@ ___
 
 <br>
 
-<p>A classe <code>Questao</code> herda da classe <code>admin.ModelAdmin</code> e define as configurações de exibição para o modelo <code>Pergunta</code>. O atributo <code>list_display</code> determina quais campos serão exibidos na lista de exibição do modelo, enquanto <code>list_display_links</code> define quais campos serão clicáveis ​​para editar um objeto. Já <code>search_fields</code> especifica quais campos serão usados ​​na busca de objetos.</p>
+<p>A classe <code>Questao</code> herda da classe <code>admin.ModelAdmin</code> e define as configurações de exibição para o modelo <code>Pergunta</code>. O atributo <code>list_display</code> determina quais campos serão exibidos na lista de exibição do modelo, enquanto <code>list_display_links</code> define quais campos serão clicáveis para editar um objeto. Já <code>search_fields</code> especifica quais campos serão usados na busca de objetos.</p>
 
 <br>
 
@@ -297,7 +297,7 @@ ___
 
 <br>
 
-<p>Por fim, as funções <code>admin.site.register(Pergunta, Questao)</code> e <code>admin.site.register(Puzzle, GamePuzzle)</code> registram as classes <code>Questao</code> e <code>GamePuzzle</code> como responsáveis ​​por exibir os modelos <code>Pergunta</code> e <code>Puzzle</code>, respectivamente, na área administrativa do Django.</p>
+<p>Por fim, as funções <code>admin.site.register(Pergunta, Questao)</code> e <code>admin.site.register(Puzzle, GamePuzzle)</code> registram as classes <code>Questao</code> e <code>GamePuzzle</code> como responsáveis por exibir os modelos <code>Pergunta</code> e <code>Puzzle</code>, respectivamente, na área administrativa do Django.</p>
 
 <br>
 
