@@ -226,19 +226,19 @@ ___
 
 <br>
 
-<code>
-
+```
     from rest_framework import viewsets
     from API.models import Pergunta, Puzzle
     from API.serializer  import PerguntaSerializer, PuzzleSerializer
-</code>
+```
 
 <br>
+
 <p>No código abaico, definimos uma classe <code>PerguntaViewsetsque</code> herda de <code>viewsets.ModelViewSet</code> e definimos duas variáveis ​​de classe, <code>queryset</code> e <code>serializer_class</code>. Uma variável <code>queryset</code> define quais instâncias do modelo <code>Pergunta</code> serão usadas no <code>viewset</code>, enquanto uma variável <code>serializer_class</code> define qual classe serializadora será usada.</p>
+
 <br>
 
-<code>
-
+```
     class PerguntaViewsets(viewsets.ModelViewSet):
         queryset = Pergunta.objects.all()
         serializer_class = PerguntaSerializer
@@ -246,76 +246,84 @@ ___
     class PuzzleViewsets(viewsets.ModelViewSet):
         queryset = Puzzle.objects.all()
         serializer_class = PuzzleSerializer
-</code>
+```
+
+<br>
 
 <p>Com essas duas classes criadas, podemos usar as rotas padrão do Rest_Framework para acessar as instâncias do modelo Perguntae Puzzlena API, usando os métodos HTTP padrão como GET, POST, PUT e DELETE.</p>
 
 <br>
 
-<h3>Admin</h3>
-<hr>
+#### Admin
+
+___
+
 <p>A área administrativa do Django é uma interface de administração gerada automaticamente que permite gerenciar os dados do banco de dados. Com ela, é possível adicionar, editar e excluir instâncias de modelos, além de executar outras tarefas administrativas, como gerenciar usuários e grupos.</p>
 <p>Com isso em mente, abra o arquivo <code>admin.py</code> dentro da pasta da aplicação. Será adicionado as classes que foram criadas anteriormente, afim de que essas sejam exibidas na "área administrativa".</p>
 <p>Importe as classes:</p>
+
 <br>
 
-<code>
-
+```
     from django.contrib import admin
     from API.models import Pergunta, Puzzle
-</code>
+```
 
 <br>
+
 <p>A classe <code>Questao</code> herda da classe <code>admin.ModelAdmin</code> e define as configurações de exibição para o modelo <code>Pergunta</code>. O atributo <code>list_display</code> determina quais campos serão exibidos na lista de exibição do modelo, enquanto <code>list_display_links</code> define quais campos serão clicáveis ​​para editar um objeto. Já <code>search_fields</code> especifica quais campos serão usados ​​na busca de objetos.</p>
+
 <br>
 
-<code>
-
+```
     class Questao(admin.ModelAdmin):
         list_display = ('id', 'perguntaNivel', 'pergunta', 'alternativa_a', 'alternativa_b', 'alternativa_c', 'alternativa_d', 'resposta')
         list_display_links = ('id', 'perguntaNivel', 'pergunta', 'alternativa_a', 'alternativa_b', 'alternativa_c', 'alternativa_d', 'resposta')
         search_fields = ('pergunta', 'perguntaNivel')
-</code>
+```
 
 <br>
 
 <p>De forma semelhante, a classe "GamePuzzle" define as configurações de exibição para o modelo "Puzzle".</p>
+
 <br>
 
-<code>
-
+```
     class Questao(admin.ModelAdmin):
         list_display = ('id', 'perguntaNivel', 'pergunta', 'alternativa_a', 'alternativa_b', 'alternativa_c', 'alternativa_d', 'resposta')
         list_display_links = ('id', 'perguntaNivel', 'pergunta', 'alternativa_a', 'alternativa_b', 'alternativa_c', 'alternativa_d', 'resposta')
         search_fields = ('pergunta', 'perguntaNivel')
-</code>
+```
 
 <br>
 
 <p>Por fim, as funções <code>admin.site.register(Pergunta, Questao)</code> e <code>admin.site.register(Puzzle, GamePuzzle)</code> registram as classes <code>Questao</code> e <code>GamePuzzle</code> como responsáveis ​​por exibir os modelos <code>Pergunta</code> e <code>Puzzle</code>, respectivamente, na área administrativa do Django.</p>
+
 <br>
 
-<code>
-
+```
     admin.site.register(Pergunta, Questao)
     admin.site.register(Puzzle, GamePuzzle)
-</code>
+```
 
 <br>
 
-<h3>Urls</h3>
-<hr>
+#### Urls
+
+___
+
 <p>Para finalizar a implementação, abra a pasta do projeto Django (definido anteriormente como <code>config</code>) e abra o arquivo chamdado <code>urls.py</code></p>
 <p>Faça as seguintes impotações:</p>
 
 <br>
-<code>
 
+```
     from django.contrib import admin
     from django.urls import path, include
     from rest_framework import routers
     from API.views import PerguntaViewsets, PuzzleViewsets
-</code>
+```
+
 <br>
 
 <p>No código abaixo será definindo as rotas (URLs) da API, utilizando a biblioteca <code>DefaultRouter</code> do Rest Framework. Primeiro, é criada uma instância do <code>DefaultRouter</code>. Em seguida, duas rotas são registradas utilizando o método <code>register</code>. As rotas são definidas para as viewssets <code>PerguntaViewsets</code> e <code>PuzzleViewsets</code>, que gerenciam as operações CRUD para os modelos <code>Pergunta</code> e <code>Puzzle</code>, respectivamente.</p>
@@ -324,8 +332,7 @@ ___
 
 <br>
 
-<code>
-
+```
     router = routers.DefaultRouter()
     router.register(r'perguntas', PerguntaViewsets)
     router.register(r'puzzles', PuzzleViewsets)
@@ -334,7 +341,8 @@ ___
         path('admin/', admin.site.urls),
         path('', include(router.urls)),
     ]
-</code>
+```
+
 <br>
 
 <p>E assim finaliza a implementação da API, para ver seu funcionamento, basta digitar no terminal <code>python manage.py runserver</code></p>
@@ -346,7 +354,9 @@ ___
 </p>
 
 <br>
+
 <p>Abra o link em seu navegador:</p>
+
 <br>
 
 <p align="center">
@@ -354,16 +364,21 @@ ___
 </p>
 
 <br>
+
 <p>Nessa página será possivel realizar operações de GET, POST, PUT e DELETE. Nos tópico <a hre="#run"> COMO USAR / END POINTS</a> será abordado com mais detalhes a utilização da API.</p>
 
 <br>
 
-<h3 id='dp'>📟 Deploy com Pythonanywhere</h3>
+<div id='dp'></div>
+
+## 📟Deploy com Pythonanywhere
 
 <hr>
 
 <br>
 
-<h3 id='run'>💻 Como Usar a API</h3>
+<div id='run'></div>
+
+## 💻Como Usar a API
 
 <hr>
