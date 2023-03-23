@@ -10,19 +10,21 @@
  8. [LICENÇA DO PROJETO](LICENSE)
  ****
 
-<br>
-## 📃Descrição do projeto
 <div id='desc'></div>
+
+## 📃Descrição do projeto
 
 <p>A API em questão é uma solução simples para aplicações que desejam armazenar e gerenciar questões de múltipla escolha e puzzles com palavras bagunçadas. Ela oferece suporte a um conjunto de comandos HTTP que incluem GET, PUT, UPDATE e DELETE, permitindo que os usuários interajam com a API de maneira flexível e eficiente. Além de permitir o armazenamento de perguntas, alternativas e respostas com seus respectivos níveis de dificuldade. Isso possibilita a criação de aplicações, que podem ser adaptadas para atender às necessidades de diferentes públicos. Por fim, instalar o Insomnia para testar a API.</p>
 
-<br>
-<h3 id='fer'>🔧 Ferramentas:</h3>
-<hr>
+
+<div id='fer'></div>
+
+## 🔧Ferramentas
 
 <p>Para iniciar o desenvolvimento da API, serão necessárias algumas ferramentas essenciais. Primeiramente, será preciso de um editor de código, como Visual Studio Code. Em seguida, será preciso instalar o Python, que é a linguagem de programação na qual a API será desenvolvida.</p>
 
-<h4>Visual Studio Code v1.76</h4>
+#### Visual Studio Code v1.76
+
 <ul>
     <li>Acesse o site oficial do Visual Studio Code em https://code.visualstudio.com/.</li>
     <li>Clique no botão "Download" na página inicial.</li>
@@ -30,9 +32,8 @@
     <li>Após o download, execute o arquivo de instalação e siga as instruções na tela.</li>
 </ul>
 
-<br>
+#### Python 3
 
-<h4 id='tec'>Python 3</h4>
 <ul>
     <li>Acesse o site oficial do Python em https://www.python.org/.</li>
     <li>Clique no botão "Downloads" na página inicial.</li>
@@ -42,10 +43,8 @@
     <li>Conclua a instalação e abra o terminal ou prompt de comando para verificar se o Python foi instalado corretamente, digitando "python --version".</li>
 </ul>
 
-<br>
+#### Insomnia 2023.1
 
-
-<h4>Insomnia 2023.1</h4>
 <ul>
     <li>Acesse o site oficial do Insomnia em https://insomnia.rest/.</li>
     <li>Clique no botão "Download" na página inicial.</li>
@@ -53,9 +52,10 @@
     <li>Após o download, execute o arquivo de instalação e siga as instruções na tela.</li>
 </ul>
 
-<br>
-<h3 id='tec'>📐 Tecnologias:</h3>
-<hr>
+<div id='tec'></div>
+
+## 📐Tecnologias
+
 <p>No desenvolvimento dessa API foram utilizadas as seguintes tecnologias: </p>
 <ul>
     <li>Framework API REST 3.14</li>
@@ -64,9 +64,10 @@
     <li><a href='https://www.pythonanywhere.com/'>Pythonanywhere</a></li>
 </ul>
 
-<br>
-<h3 id='ppa'>💻 Preparando Ambiente</h3>
-<hr>
+<div id='ppa'></div>
+
+## 💻Preparando Ambiente
+
 <p>Para preparar o ambiente de desenvolvimento com o Visual Studio Code e instalar todas as dependencias do projeto, siga os passos abaixo:</p>
 <ol>
     <li>Crie uma nova pasta para o projeto.</li>
@@ -109,9 +110,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 
 <br>
 
-<h3 id='imp'>⌨️ Implementando projeto</h3>
+<div id='imp'></div>
 
-<hr>
+## ⌨️Implementando projeto
 
 <p>Para iniciar a implementaçõa, digite <code>python manage.py startapp nome_app</code> no terminal para criar uma nova aplicação dentro do django. Nessa implementação a aplicação está nomeada como <code>API</code>. Após criar o app, entre na pasta do projeto django (config), e abra o arquivo <code>settings.py</code> Dentro desse, procure por <code>INSTALLED_APPS</code> adicione ao fim o nome da aplicação que escolheu. <code>'API',</code></p>
 
@@ -124,8 +125,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 
 <br>
 
-<h3>Models</h3>
-<hr>
+#### Models
+
+___
 
 <p>Com a aplicação criada, entre na sua respectiva pasta, e edite o arquivo <code>models.py</code> Dentro desse aquivo serão definido as classes que representarão as tabelas no banco de dados. Ou seja, quando você cria um modelo, está criando uma classe Python que representa uma tabela no banco de dados. Cada atributo da classe representa uma coluna na tabela.</p> 
 
@@ -148,13 +150,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
     def __str__(self):
         return self.pergunta
 ```
+<br>
 
 <p>Aqui é definido a classe "Puzzle" com campos para definir: nivel, enunciado, uma palavra, frase ou coamando com os termos fora de ordem, e  resposta.</p>
 
 <br>
 
-<code>
-
+```
     class Puzzle(models.Model):
         puzzleNivel = models.IntegerField()
         puzzleEnunciado = models.CharField(max_length = 250)
@@ -163,10 +165,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 
         def __str__(self):
             return self.puzzleEnunciado
-
-</code>
+```
 
 <br>
+
 <p>Para que os modelos(tabelas) sejam adicionados ao banco de dados, digite o <code>python manage.py makemigrations nome_app</code> no terminal. Logo em seguida, digite <code>python manage.py migrate nome_app</code> Com isso as tebelas serão criadas no banco.</p>
 
 <br>
@@ -177,29 +179,30 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 
 <br>
 
-<h3>Serializer</h3>
-<hr>
+#### Serializer
+
+___
 
 <p>Ainda dentro da pasta da aplicação, crie um arquivo chamado <code>serializer.py</code>. O Serializer usado para converter objetos, como as models do Django, e outras estruturas de dados, em tipos de dados nativos que possam ser facilmente renderizados em JSON, XML ou outros formatos de conteúdo.</p>
 
 <p>No cabeçalho do arquivo será importado o "serializers" do "rest framework", classe reponsável por realizar a serialização dos models. Também serão importados os models "Pergunta" e "Puzzle" da aplicação.</p>
 
 <br>
-<code>
 
+```
     from rest_framework import serializers
     from API.models import Pergunta, Puzzle
-</code>
+```
 
 <br>
+
 <p>Esse código é a definição de dois Serializers usando a biblioteca Rest_Framework do Django. Eles servem para transformar os dados de objetos "Pergunta" e "Puzzle" em um formato que pode ser transmitido pela internet (geralmente em formato JSON).</p>
 
 <p>A classe "Meta" dentro de cada Serializer especifica qual modelo de banco de dados deve ser usado e quais campos devem ser incluídos na serialização (com o atributo "fields" definido como "all", significa que todos os campos do modelo serão incluídos).</p>
+
 <br>
 
-
-<code>
-
+```
     class PerguntaSerializer(serializers.ModelSerializer):
         class Meta:
             model = Pergunta
@@ -209,12 +212,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
         class Meta:
             model = Puzzle
             fields = '__all__'
-</code>
+```
 
 <br>
 
-<h3>Views</h3>
-<hr>
+#### Views
+
+___
 
 <p>Ainda dentro da pasta da aplicação, abra o arquivo <code>views.py</code></p>
 
