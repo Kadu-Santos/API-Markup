@@ -125,7 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 
 <br>
 
-#### Models
+#### 📌 Models
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 <br>
 
-#### Serializer
+#### 📌 Serializer
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 <br>
 
-#### Views
+#### 📌 Views
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 <br>
 
-#### Admin
+#### 📌 Admin
 
 ___
 
@@ -308,7 +308,7 @@ ___
 
 <br>
 
-#### Urls
+#### 📌 Urls
 
 ___
 
@@ -345,6 +345,8 @@ ___
 
 <br>
 
+<p>📜 Após realizar os passos acima, vá ao terminal e digite <code>pip freeze > dependences.txt</code> Com isso será criado um arquivo de texto que conterá todas as dependencias do projeto. Esse arquivo será usado para instalar todas as dependecias do projeto no local onde será hospedado.</p>
+
 <p>E assim finaliza a implementação da API, para ver seu funcionamento, basta digitar no terminal <code>python manage.py runserver</code></p>
 
 <br>
@@ -355,7 +357,7 @@ ___
 
 <br>
 
-<p>Abra o link em seu navegador:</p>
+<p>Abra o link gerado no terminal em seu navegador:</p>
 
 <br>
 
@@ -365,7 +367,8 @@ ___
 
 <br>
 
-<p>Nessa página será possivel realizar operações de GET, POST, PUT e DELETE. Nos tópico <a hre="#run"> COMO USAR / END POINTS</a> será abordado com mais detalhes a utilização da API.</p>
+<p>Nessa página será possivel realizar operações de GET, POST, PUT e DELETE. Nos tópico <a href="#run"> COMO USAR / END POINTS</a> será abordado com mais detalhes a utilização da API.</p>
+
 
 <br>
 
@@ -373,7 +376,64 @@ ___
 
 ## 📟Deploy com Pythonanywhere
 
+<p>Existem diversas plataformas gratuitas para hospedar uma aplicação django, no entanto, nesse tutorial será usado a plataforma Pythonanywhere. Para iniciar o processo de deploy, acesse <a href="https://www.pythonanywhere.com">https://www.pythonanywhere.com</a>, crie uma conta e confirme seu e-mail.</p>
+<p>Após criar a conta, você terá a visão dessa tela abaixo:</p>
+
 <br>
+
+<p align="center">
+    <img src="imgs_tut\home_pythonanywhere.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
+<p>Para realizar o upload do seu projeto na plataforma Pythonanywhere, é necessário que você possua uma conta no Github e um repositório com os arquivos do projeto. Caso ainda não possua esses requisitos, você pode criar uma conta no Github e criar um repositório com os arquivos do seu projeto.</p>
+
+<p> Após ter sua conta no Github e um repositório com o projeto, acesse a página inicial da Pythonanywhere e clique no botão <code>$ Bash</code> em "new console". Isso abrirá uma nova página com um terminal.</p>
+
+<br>
+
+<p align="center">
+    <img src="imgs_tut\terminal_pythonanywhere.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
+<p>Dentro do console, clone o seu projeto utilizando o comando <code>git clone "link_repositório"</code>. Com isso, os dados do seu projeto estarão hospedados na Pythonanywhere.</p>
+
+<p>A seguir, é necessário criar um ambiente virtual dentro da plataforma. Para isso, utilize o comando: <code>python -m venv nome_ambiente</code></p>
+
+<p>Após criar o ambiente virtual, é preciso ativá-lo utilizando o comando <code>source nome_ambiente/bin/activate</code>.</p>
+
+<p>Em seguida, acesse a pasta do projeto que você clonou anteriormente utilizando o comando <code>cd nome_repositorio</code>. Utilize o comando <code>ls</code> para visualizar todos os arquivos da pasta.</p>
+
+<p>Então, digite: <code>pip install -r dependences.txt</code> para instalar todas as dependencias do projeto.</p>
+
+<p>Crie uma pasta pasta para armazenar os arquivos estáticos com o comando <code>mkdir static</code></p>
+
+<p>Por fim, digite: <code>python manage.py collectstatic</code> para coletar arquivos estáticos (como folhas de estilo, imagens e scripts JavaScript) para a pasta 'static'.</p>
+
+<br>
+
+<p align="center">
+    <img src="imgs_tut\terminal_comando_pythonanywhere.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
+<p>Volte à página inícial da pythonanywhere e vá até a gui "Web".</p>
+
+<br>
+
+<p align="center">
+    <img src="imgs_tut\web_pythonanywhere.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
+<p>Selecione "Add a new app" e em seguide clique em "Next"</p>
+<p>Aparecerá uma tela pedindo para selecionar um framework python, clique em "Manual Configuration"</p>
+<p>Em seguida selecione a ultima versão do python e clique em "Next".</p>
 
 <div id='run'></div>
 
