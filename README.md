@@ -114,7 +114,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 
 ## ⌨️Implementando projeto
 
-<p>Para iniciar a implementaçõa, digite <code>python manage.py startapp nome_app</code> no terminal para criar uma nova aplicação dentro do django. Nessa implementação a aplicação está nomeada como <code>API</code>. Após criar o app, entre na pasta do projeto django (config), e abra o arquivo <code>settings.py</code> Dentro desse, procure por <code>INSTALLED_APPS</code> adicione ao fim o nome da aplicação que escolheu. <code>'API',</code></p>
+<p>Para iniciar a implementaçõa, digite <code>python manage.py startapp nome_app</code> no terminal para criar uma nova aplicação dentro do django. Nessa implementação a aplicação está nomeada como <code>API-Markup</code>. Após criar o app, entre na pasta do projeto django (config), e abra o arquivo <code>settings.py</code> Dentro desse, procure por <code>INSTALLED_APPS</code> adicione ao fim o nome da aplicação que escolheu. <code>'API-Markup',</code></p>
 
 <br>
 
@@ -191,7 +191,7 @@ ___
 
 ```
     from rest_framework import serializers
-    from API.models import Pergunta, Puzzle
+    from API-Markup.models import Pergunta, Puzzle
 ```
 
 <br>
@@ -228,8 +228,8 @@ ___
 
 ```
     from rest_framework import viewsets
-    from API.models import Pergunta, Puzzle
-    from API.serializer  import PerguntaSerializer, PuzzleSerializer
+    from API-Markup.models import Pergunta, Puzzle
+    from API-Markup.serializer  import PerguntaSerializer, PuzzleSerializer
 ```
 
 <br>
@@ -266,7 +266,7 @@ ___
 
 ```
     from django.contrib import admin
-    from API.models import Pergunta, Puzzle
+    from API-Markup.models import Pergunta, Puzzle
 ```
 
 <br>
@@ -321,7 +321,7 @@ ___
     from django.contrib import admin
     from django.urls import path, include
     from rest_framework import routers
-    from API.views import PerguntaViewsets, PuzzleViewsets
+    from API-Markup.views import PerguntaViewsets, PuzzleViewsets
 ```
 
 <br>
@@ -431,9 +431,7 @@ ___
 
 <br>
 
-<p>Selecione "Add a new app" e em seguide clique em "Next"</p>
-<p>Aparecerá uma tela pedindo para selecionar um framework python, clique em "Manual Configuration"</p>
-<p>Em seguida selecione a ultima versão do python e clique em "Next".</p>
+<p>Para adicionar um novo aplicativo, selecione "Add a new app" e clique em "Next". Em seguida, aparecerá uma tela pedindo para selecionar um framework Python. Nesse caso, clique em "Manual Configuration". Na próxima tela, selecione a última versão do Python e clique em "Next". Após realizar esses passos, você será direcionado para a página da imagem abaixo.</p>
 
 <br>
 
@@ -443,8 +441,31 @@ ___
 
 <br>
 
-<p>Role a página até encontra a sessão "Code" e em "Source Code:" e clique sobre "Enter the path to your web app source code". Será solicitado o diretório da sua aplicação, ou seja, o diretório da raiz do projeto que foi clonado para a pythonanywhere. O diretório terá a seguinte estrutura <code>/home/nome_usuario_conta/pasta_raiz_projeto/</code></p>
-<p>Logo abaixo, na sesão "Virtualenv" e clique sobre <code>Enter path to a virtualenv, if desired</code>. Nesse campo será solicitado o diretório do ambinte virtual criado anteriormente.</p>O diretório terá a seguinte estrutura <code>/home/nome_usuario_conta/nome_ambiente_virtual/</code></p>
+<p>Role a página até encontrar a sessão "Code" e clique em "Enter the path to your web app source code". Será solicitado o diretório da sua aplicação, ou seja, o diretório da raiz do projeto que foi clonado para a PythonAnywhere. O diretório terá a seguinte estrutura <code>/home/nome_usuario_conta/pasta_raíz_projeto/</code></p>
+
+<p>Ainda na sessão "Code", clique em <code>WSGI configuration file</code>. Ao fazer isso, será aberta uma página de configurações do projeto. Role a página até encontrar a sessão do "DJANGO". As configurações estarão comentadas, descomente-as de acordo com a imagem abaixo.</p>
+
+<br>
+
+<p align="center">
+    <img src="imgs_tut\wsgi_config.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
+<p>Em seguida, na variável "path", altere o diretório sugerido para o diretório raiz do seu projeto, que terá a seguinte estrutura: <code>/home/nome_usuario_conta/pasta_raiz_projeto/</code></p>
+
+<p>Logo abaixo, na variável <code>os.environ['DJANGO_SETTINGS_MODULE']</code> atribua como valor o nome da pasta do projeto django onde está contido o arquivo <code>settings.py</code> seguido por <code>.settings</code>. Exemplo abaixo:</p>
+
+<br>
+
+<p align="center">
+    <img src="imgs_tut\wsgi_config2.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
+<p>Volte à guia "web" da Pythonanywhere, procure pela sesão "Virtualenv" que estará logo a baixo a sessão "Code" e clique sobre <code>Enter path to a virtualenv, if desired</code>. Nesse campo será solicitado o diretório do ambinte virtual criado anteriormente.</p>O diretório terá a seguinte estrutura <code>/home/nome_usuario_conta/nome_ambiente_virtual/</code></p>
 
 <br>
 
@@ -454,6 +475,45 @@ ___
 
 <br>
 
+<p>E por fim, para finalizar as o deploy role a página até a sessão "Static files:"</p>
+<p>No campo <code>Enter url</code> adicione a url <code>/static/</code></p>
+<p>Em seguida no campo <code>Enter path</code> adicione o diretório da pasta static criada anteriormente no terminal. <code>/home/nome_usuario_conta/pasta_raiz_projeto/static/</code></p>
+
+<br>
+
+<p align="center">
+    <img src="imgs_tut\web_configurado2_pythonanywhere.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
+<p>Assim finaliza o processo de deploy na plataforma pythonanywhere. Para acessar a API role até a parte superior da guia "Web" e abra o link em "Configuration for"</p>
+
+<br>
+
+<p align="center">
+    <img src="imgs_tut\web_config2_pythonanywhere.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
 <div id='run'></div>
 
 ## 💻Como usar a API
+
+<p>Esta API permite tanto o consumo quanto a inserção de informações, disponibilizando os métodos HTTP GET, POST, PUT e DELETE para manipular os dados conforme a necessidade do usuário. Assim, é possível acessar os dados existentes, adicionar novos registros, atualizar ou excluir informações já existentes. Vale resaltar que nenhuma autenticação é necessária para acessar esta API e todos os recursos são totalmente abertos e disponíveis.</p>
+<p>Também é importante lembrar que todos os dados retornados pela API estão em formato JSON, o que torna a integração com outras aplicações e linguagens de programação muito mais fácil e eficiente. </p>
+
+<br>
+
+### End Points
+
+<p>Para utilizar esta API, basta acessar o endpoint <a href="http://markupapp.pythonanywhere.com/">http://markupapp.pythonanywhere.com/</a>. A partir dele, você poderá acessar os seguintes serviços:</p>
+<ul>
+    <li><code>/perguntas/</code>          - Este endpoint retorna todas as perguntas disponíveis na API.</li>
+    <li><code>/perguntas/{int:id}/</code> - Este endpoint retorna uma pergunta específica com o ID informado na URL.</li>
+    <li><code>/puzzles/</code>            - Este endpoint retorna todos os puzzles disponíveis na API.</li>
+    <li><code>/puzzles/{int:id}/</code>   - Este endpoint retorna um puzzles específico com o ID informado na URL.</li>
+</ul>
+
+
