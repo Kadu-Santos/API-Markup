@@ -564,6 +564,105 @@ Puzzles:
 
 <div id="test"><div>
 
-## 🌐Tentando API
+## 🌐Testando API
 
-<p>Para testarmos a API, será usado o programa Insomnia. Na imagem abaixo poderá ver a tela inicial da aplicação.</p>
+<p>Para realizar testes na API criada, será utilizado o software Insomnia, que permite enviar requisições HTTP e visualizar as respostas recebidas. Serão testados os métodos GET, POST, PUT e DELETE da API, utilizando a interface intuitiva do Insomnia para enviar as requisições e verificar as respostas. A figura abaixo ilustra a tela inicial do Insomnia, onde é possível selecionar o método de requisição e inserir os parâmetros necessários para realizar a chamada à API.</p>
+
+<br>
+
+<p align="center"><img src="imgs_tut\insomnia_exemplo.png" width="550px" style="margin: auto;"></p>
+
+<br>
+<br>
+
+### 🚀POST
+
+---
+
+<p>Seguiremos os seguintes paços para inserir uma pergunta na API.</p>
+<ol>
+    <li>Selecione a requisição do tipo POST.</li>
+    <li>Insira a URL da rota de criação de perguntas da API no campo de URL. Por exemplo: <code>http://markupapp.pythonanywhere.com/perguntas/</code></li>
+    <li>No corpo da requisição, selecione o formato JSON e insira os dados da pergunta seguindo o modelo de dados aceito pela API.
+    <br><br>
+    <p align="center"><img src="imgs_tut\insomnia_exemplo_post.png" width="600px" style="margin: auto;"></p>
+    <br>
+    </li>
+    <li>Clique em "SEND" para enviar a requisição à API.</li>
+    <li>Caso a requisição seja bem sucedida, a API irá retornar um objeto JSON contendo os dados da pergunta criada, incluindo um ID único gerado automaticamente pela API. Você poderá visualizar a resposta recebida na área de resposta do Insomnia.</li>
+</ol>
+
+<br>
+<br>
+
+### 📨GET
+
+---
+
+<p>Para retornar uma pergunta siga os paços descritos.</p>
+<ol>
+    <li>Selecione a requisição do tipo GET.</li>
+    <li>Insira a URL da rota de busca de perguntas da API, adicionando o ID da pergunta que deseja obter. Por exemplo: <code>http://markupapp.pythonanywhere.com/perguntas/6/</code>
+    <br><br>
+    <p align="center"><img src="imgs_tut\insomnia_exemplo_get1.png" width="600px" style="margin: auto;"></p>
+    <br>
+    </li>
+    <li>Clique em "Send" para enviar a requisição à API.</li>
+    <li>Caso a requisição seja bem sucedida, a API irá retornar um objeto JSON com os dados da pergunta correspondente. Você poderá visualizar a resposta recebida na área de resposta do Insomnia.</li>
+</ol>
+
+<p>Para retornar todas as perguntas da API, basta não informar um ID na URL. Por exemplo: <code>http://markupapp.pythonanywhere.com/perguntas/</code></p>
+<p>Ao clicar em "SEND" todas as perguntas serão retornadas.</p>
+
+<br>
+
+<p align="center"><img src="imgs_tut\insomnia_exemplo_get2.png" width="600px" style="margin: auto;"></p>
+
+<br>
+<br>
+
+### ❌DELETE
+
+---
+
+<p>Para excluir uma pergunta da API siga os seguintes paços:</p>
+<ol>
+    <li>Selecione a requisição do tipo DELETE.</li>
+    <li>Insira a URL da rota de exclusão de perguntas da API, adicionando o ID da pergunta que deseja excluir. Por exemplo: <code>http://markupapp.pythonanywhere.com/perguntas/7/</code>
+    <br><br>
+    <p align="center"><img src="imgs_tut\insomnia_exemplo_delete.png" width="600px" style="margin: auto;"></p>
+    <br>
+    </li>
+    <li>Clique en "SEND" para enviar a requisição à API.</li>
+    <li>Caso a requisição seja bem sucedida, a API irá retornar um objeto JSON com a mensagem "Excluído com sucesso". Você poderá visualizar a resposta recebida na área de resposta do Insomnia.</li>
+</ol>
+<p>⚠️Lembre-se de que a exclusão de uma pergunta é uma operação irreversível, portanto, verifique cuidadosamente se é isso que deseja fazer antes de executar a requisição DELETE.</p>
+
+<br>
+<br>
+
+### 🔄PUT
+
+---
+
+<p>Siga os seguintes paços para atualizar uma pergunta.</p>
+<ol>
+    <li>Selecione a requisição do tipo PUT.</li>
+    <li>Insira a URL da rota de atualização de perguntas da API, adicionando o ID da pergunta que deseja atualizar. Por exemplo: <code>http://markupapp.pythonanywhere.com/perguntas/6/</code></li>
+    <li>No corpo da requisição, insira um objeto JSON com os campos que deseja atualizar na pergunta.
+    <br><br>
+    <p align="center"><img src="imgs_tut\insomnia_exemplo_put.png" width="600px" style="margin: auto;"></p>
+    <br>
+    </li>
+    <li>Nesse exmplo, o nível da pergunta será atualizado de "1" para "2".</li>
+    <li>Clique en "SEND" para enviar a requisição à API.</li>
+    <li>Para verificar se a pergunta foi realmente atualizada, você pode realizar uma requisição GET para a pergunta correspondente e verificar se os campos foram atualizados corretamente.</li>
+</ol>
+
+<br>
+
+<p align="center"><img src="imgs_tut\insomnia_exemplo_put2.png" width="600px" style="margin: auto;"></p>
+
+<br>
+
+<p>Com a apresentação dos quatro métodos de requisição - GET, POST, PUT e DELETE - é possível realizar todas as operações básicas em uma API REST, incluindo a busca, inserção, atualização e exclusão dos itens das tabelas "perguntas" e "puzzles".</p>
