@@ -14,14 +14,14 @@
 
 ## 📃Descrição do projeto
 
-<p>A API em questão é uma solução simples para aplicações que desejam armazenar e gerenciar questões de múltipla escolha e puzzles com palavras bagunçadas. Ela oferece suporte a um conjunto de comandos HTTP que incluem GET, PUT, UPDATE e DELETE, permitindo que os usuários interajam com a API de maneira flexível e eficiente. Além de permitir o armazenamento de perguntas, alternativas e respostas com seus respectivos níveis de dificuldade. Isso possibilita a criação de aplicações, que podem ser adaptadas para atender às necessidades de diferentes públicos. Por fim, instalar o Insomnia para testar a API.</p>
+<p>A API em questão é uma solução simples para aplicações que desejam armazenar e gerenciar questões de múltipla escolha e puzzles com palavras bagunçadas. Ela oferece suporte a um conjunto de comandos HTTP que incluem GET, PUT, UPDATE e DELETE, permitindo que os usuários interajam com a API de maneira flexível e eficiente. Além de permitir o armazenamento de perguntas, alternativas e respostas com seus respectivos níveis de dificuldade. Isso possibilita a criação de aplicações, que podem ser adaptadas para atender às necessidades de diferentes públicos.</p>
 
 
 <div id='fer'></div>
 
 ## 🔧Ferramentas
 
-<p>Para iniciar o desenvolvimento da API, serão necessárias algumas ferramentas essenciais. Primeiramente, será preciso de um editor de código, como Visual Studio Code. Em seguida, será preciso instalar o Python, que é a linguagem de programação na qual a API será desenvolvida.</p>
+<p>Para iniciar o desenvolvimento da API, serão necessárias algumas ferramentas essenciais. Primeiramente, será preciso de um editor de código, como Visual Studio Code. Em seguida, será preciso instalar o Python, que é a linguagem de programação na qual a API será desenvolvida e por fim Insomnia, que seá usado para testar a API.</p>
 
 #### Visual Studio Code v1.76
 
@@ -421,7 +421,7 @@ ___
 
 <br>
 
-<p>Volte à página inícial da pythonanywhere e vá até a gui "Web".</p>
+<p>Volte à página inícial da pythonanywhere e vá até a guia "Web".</p>
 
 <br>
 
@@ -435,6 +435,25 @@ ___
 <p>Aparecerá uma tela pedindo para selecionar um framework python, clique em "Manual Configuration"</p>
 <p>Em seguida selecione a ultima versão do python e clique em "Next".</p>
 
+<br>
+
+<p align="center">
+    <img src="imgs_tut\web_config_pythonanywhere.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
+<p>Role a página até encontra a sessão "Code" e em "Source Code:" e clique sobre "Enter the path to your web app source code". Será solicitado o diretório da sua aplicação, ou seja, o diretório da raiz do projeto que foi clonado para a pythonanywhere. O diretório terá a seguinte estrutura <code>/home/nome_usuario_conta/pasta_raiz_projeto/</code></p>
+<p>Logo abaixo, na sesão "Virtualenv" e clique sobre <code>Enter path to a virtualenv, if desired</code>. Nesse campo será solicitado o diretório do ambinte virtual criado anteriormente.</p>O diretório terá a seguinte estrutura <code>/home/nome_usuario_conta/nome_ambiente_virtual/</code></p>
+
+<br>
+
+<p align="center">
+    <img src="imgs_tut\web_configurado1_pythonanywhere.png" width="550px" style="margin: auto;">
+</p>
+
+<br>
+
 <div id='run'></div>
 
-## 💻Como Usar a API
+## 💻Como usar a API
