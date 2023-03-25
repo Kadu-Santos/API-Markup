@@ -7,7 +7,8 @@
  5. [IMPLEMENTAÇÃO](#imp)
  6. [DEPLOY](#dp)
  7. [COMO USAR / END POINTS](#run)
- 8. [LICENÇA DO PROJETO](LICENSE)
+ 8. [TESTANDO API](#test)
+ 9. [LICENÇA DO PROJETO](LICENSE)
  ****
 
 <div id='desc'></div>
@@ -376,7 +377,7 @@ ___
 
 ## 📟Deploy com Pythonanywhere
 
-<p>Existem diversas plataformas gratuitas para hospedar uma aplicação django, no entanto, nesse tutorial será usado a plataforma Pythonanywhere. Para iniciar o processo de deploy, acesse <a href="https://www.pythonanywhere.com">https://www.pythonanywhere.com</a>, crie uma conta e confirme seu e-mail.</p>
+<p>Neste tutorial utilizaremos a plataforma PythonAnywhere para hospedar o projeto. É importante lembrar que, por ser um plano gratuito, ela apresenta algumas limitações, como um tamanho máximo de projeto de 512MB e a necessidade de renovação a cada três meses. Para começar o processo de deploy, acesse <a href="https://www.pythonanywhere.com">https://www.pythonanywhere.com</a>, crie uma conta e confirme seu e-mail.</p>
 <p>Após criar a conta, você terá a visão dessa tela abaixo:</p>
 
 <br>
@@ -506,7 +507,9 @@ ___
 
 <br>
 
-### End Points
+### 📌End Points
+
+___
 
 <p>Para utilizar esta API, basta acessar o endpoint <a href="http://markupapp.pythonanywhere.com/">http://markupapp.pythonanywhere.com/</a>. A partir dele, você poderá acessar os seguintes serviços:</p>
 <ul>
@@ -516,4 +519,51 @@ ___
     <li><code>/puzzles/{int:id}/</code>   - Este endpoint retorna um puzzles específico com o ID informado na URL.</li>
 </ul>
 
+<p>Para inserir, atualizar ou excluir uma pergunta ou puzzle:
 
+<ul>
+    <li>Use <code>POST</code> no endpoint <code>/perguntas/</code> para inserir perguntas ou <code>/puzzles/</code> para puzzles.</li>
+    <li>Use <code>PUT</code> no endpoint <code>/perguntas/{int:id}/</code> para atualizar a pergunta ou <code>/puzzles/{int:id}/</code> o puzzles.</li>
+    <li>Use <code>DELETE</code> no endpoint <code>/perguntas/{int:id}/</code> para excluir a pergunta ou <code>/puzzles/{int:id}/</code> o puzzles.</li>
+</ul>
+
+<br>
+
+<p>Modelos de dados aceitos pela API deve seguir as estruturas abaixo: </p>
+
+<br>
+
+Perguntas:
+```
+{
+    "perguntaNivel": null,
+    "pergunta": " ",
+    "alternativa_a": " ",
+    "alternativa_b": " ",
+    "alternativa_c": " ",
+    "alternativa_d": " ",
+    "resposta": " "
+}
+```
+
+<br>
+
+Puzzles:
+```
+{
+
+    "puzzleNivel": null,
+    "puzzleEnunciado": " ",
+    "puzzleComand": " ",
+    "puzzleResposta": " "
+
+}
+```
+
+<br>
+
+<div id="test"><div>
+
+## 🌐Tentando API
+
+<p>Para testarmos a API, será usado o programa Insomnia. Na imagem abaixo poderá ver a tela inicial da aplicação.</p>
