@@ -8,7 +8,8 @@
  6. [DEPLOY](#dp)
  7. [COMO USAR / END POINTS](#run)
  8. [TESTANDO API](#test)
- 9. [LICENÇA DO PROJETO](LICENSE)
+ 9. [ÁREA ADMINISTRATIVA](#adm)
+ 10. [LICENÇA DO PROJETO](LICENSE)
  ****
 
 <div id='desc'></div>
@@ -63,6 +64,7 @@
     <li>Django Frameork 4.1.7</li>
     <li><a href='https://github.com/'>Github</a></li>
     <li><a href='https://www.pythonanywhere.com/'>Pythonanywhere</a></li>
+    <li>SQLite - Banco de dados padrão do Django </li>
 </ul>
 
 <div id='ppa'></div>
@@ -130,7 +132,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
 
 ___
 
-<p>Com a aplicação criada, entre na sua respectiva pasta, e edite o arquivo <code>models.py</code> Dentro desse aquivo serão definido as classes que representarão as tabelas no banco de dados. Ou seja, quando você cria um modelo, está criando uma classe Python que representa uma tabela no banco de dados. Cada atributo da classe representa uma coluna na tabela.</p> 
+<p>Com a aplicação criada, entre na sua respectiva pasta, e edite o arquivo <code>models.py</code> Dentro desse aquivo serão definido as classes que representarão as tabelas no banco de dados. Ou seja, quando você cria um modelo, está criando uma classe Python que representa uma tabela no banco de dados. Cada atributo da classe representa uma coluna na tabela.</p>
+
+<p>Vale ressaltar que, neste projeto, foi utilizado o SQLite como banco de dados. A escolha pelo SQLite se deu, em parte, pela sua integração com o Django, o que facilita o processo de configuração e utilização do banco de dados no desenvolvimento do projeto.</p>
 
 <p>Nesse projeto serão criadas duas tabelas, uma para questões de multipla escolha e putra para um puzzle, que conterá um enunciado, uma palavra, frase ou coamando com os termos fora de ordem, e uma resposta.</p> 
 
@@ -666,3 +670,26 @@ Puzzles:
 <br>
 
 <p>Com a apresentação dos quatro métodos de requisição - GET, POST, PUT e DELETE - é possível realizar todas as operações básicas em uma API REST, incluindo a busca, inserção, atualização e exclusão dos itens das tabelas "perguntas" e "puzzles".</p>
+
+<div id='adm'></div>
+
+## 💻Área administrativa
+
+<p>Para ter acesso a área administrativa, primeiro é nessesário criar um usuário e uma senha. Para realizar em processo siga os seguintes paços:</p>
+
+<ol>
+    <li>Abra o terminal na pasta raíz do projeto Django.</li>
+    <li>Digite o seguinte comando: <code>python manage.py createsuperuser</code></li>
+    <li>O Django irá solicitar que você digite um nome de usuário. Digite um nome de usuário de sua escolha e pressione Enter.</li>
+    <li>Em seguida, o Django irá solicitar que você digite um endereço de e-mail válido. Digite o endereço de e-mail e pressione Enter.</li>
+    <li>Agora, você precisa digitar uma senha para o novo usuário. Digite a senha e pressione Enter.</li>
+    <li>O Django irá confirmar a senha digitada, basta digitá-la novamente e pressionar Enter.</li>
+</ol>
+
+<p>Pronto, o novo usuário foi criado com sucesso! Agora, para acessar a área administrativa, siga estes passos:</p>
+
+<ol>
+    <li>Abra o navegador e digite o endereço da sua API e adione ao fim <code>/admin/</code>. Caso esteja rodado o servidor em sua máquina o endereço será <code>http://localhost:8000/admin/</code></li>
+    <li>Digite o nome de usuário e a senha que você acabou de criar e clique em "Log in".</li>
+    <li>Você será redirecionado para a área administrativa, onde poderá gerenciar os dados do seu projeto Django, como usuários, modelos de dados, configurações de segurança, entre outros.</li>
+</ol>
